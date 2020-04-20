@@ -7,12 +7,6 @@ steps:
   # Install npm dependencies
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install', '--save', 'prpl-server']
-  # npm audit
-- name: "gcr.io/cloud-builders/npm"
-  args: ['audit', 'fix']
-  # Build polymer application
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
   # Build Docker container
 - name: gcr.io/cloud-builders/docker
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/shop-at-anthos:$REVISION_ID', './']
