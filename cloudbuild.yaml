@@ -1,3 +1,6 @@
+options:
+  machineType: N1_HIGHCPU_32
+
 steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://github.com/dsGCloud/shop-at-anthos.git']
@@ -19,5 +22,3 @@ steps:
   # Deploy container image to Cloud Run in GKE
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['run', 'deploy', 'shop-at-anthos', '--image', 'gcr.io/$PROJECT_ID/shop-at-anthos:$REVISION_ID', '--platform', 'gke', '--cluster', 'dev-platzi', '--cluster-location', 'us-central1-a']
-options:
-  machineType: 'N1_HIGHCPU_8'
