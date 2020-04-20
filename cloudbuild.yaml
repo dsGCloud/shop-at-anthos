@@ -10,9 +10,13 @@ steps:
       # Build polymer application
     - name: 'gcr.io/cloud-builders/npm'
       args: ['run', 'build']
+      options:
+        machineType: 'N1_HIGHCPU_8'
       # Build Docker container
     - name: gcr.io/cloud-builders/docker
       args: ['build', '-t', 'gcr.io/$PROJECT_ID/shop-at-anthos:$REVISION_ID', './']
+      options:
+        machineType: 'N1_HIGHCPU_8'
       # Push container to gcr.io repo
     - name: 'gcr.io/cloud-builders/docker'
       args: ["push", "gcr.io/$PROJECT_ID/shop-at-anthos"]
