@@ -6,7 +6,7 @@ steps:
   args: ['clone', 'https://github.com/dsGCloud/shop-at-anthos.git']
   # Install npm dependencies
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['install', '--save', 'prpl-server']
+  args: ['install']
   # Build polymer application
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
